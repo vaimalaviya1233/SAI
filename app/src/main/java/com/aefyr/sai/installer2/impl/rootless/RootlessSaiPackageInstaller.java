@@ -98,7 +98,8 @@ public class RootlessSaiPackageInstaller extends BaseSaiPackageInstaller impleme
             }
 
             Intent callbackIntent = new Intent(RootlessSaiPiBroadcastReceiver.ACTION_DELIVER_PI_EVENT);
-            PendingIntent pendingIntent = PendingIntent.getBroadcast(getContext(), 0, callbackIntent, 0);
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(getContext(), 0, callbackIntent, 0, PendingIntent.FLAG_IMMUTABLE);// not sure if PendingIntent.FLAG_IMMUTABLE is needed here but Android SDK update assistant suggested
+            
             session.commit(pendingIntent.getIntentSender());
         } catch (Exception e) {
             Log.w(TAG, e);

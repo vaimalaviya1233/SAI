@@ -93,7 +93,7 @@ public class RootlessSAIPackageInstaller extends SAIPackageInstaller {
             }
 
             Intent callbackIntent = new Intent(getContext(), RootlessSAIPIService.class);
-            PendingIntent pendingIntent = PendingIntent.getService(getContext(), 0, callbackIntent, 0);
+            PendingIntent pendingIntent = PendingIntent.getService(getContext(), 0, callbackIntent, 0,PendingIntent.FLAG_IMMUTABLE);// not sure if PendingIntent.FLAG_IMMUTABLE is needed here but Android SDK update assistant suggested
             session.commit(pendingIntent.getIntentSender());
         } catch (Exception e) {
             Log.w(TAG, e);
