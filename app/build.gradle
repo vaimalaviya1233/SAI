@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-
+android.buildFeatures.buildConfig true
 android {
     compileSdkVersion 31
     defaultConfig {
